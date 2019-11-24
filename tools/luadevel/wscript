@@ -27,12 +27,6 @@ def configure(conf):
 
 def build(bld):
     VERSION = "%s.%s" % (bld.env['MAJOR'], bld.env['MINOR'])
-    if not bld.is_defined('HAVE_READLINE'):
-            return;
-    # no wine
-    if bld.is_defined('WINDOWS_VST_SUPPORT') and bld.env['build_target'] != 'mingw':
-        return
-
     if bld.env['build_target'] != 'mingw':
     # TEST/DEVEL TOOL #######################
         obj = bld (features = 'cxx c cxxprogram')
